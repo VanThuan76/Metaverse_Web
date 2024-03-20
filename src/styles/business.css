@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  --primary-color: #1b3864;
+  --natural-color: #04070d;
+  --danger-color: #ea4435;
+  --warning-color: #fbb000;
+  --success-color: #299647;
+  --ready-color: #4286f4;
+}
+.padding-section {
+  @apply px-4 md:px-24 lg:px-32 xl:px-16;
+}
+.container-layer {
+  @apply mx-auto my-auto w-full max-w-[1440px];
+}
+.flex-row-start {
+  @apply flex items-start justify-start;
+}
+.flex-row-end {
+  @apply flex items-end justify-end;
+}
+.flex-row-center {
+  @apply flex items-center justify-center;
+}
+.flex-row-between-start {
+  @apply flex items-start justify-between;
+}
+.flex-row-between-end {
+  @apply flex items-end justify-between;
+}
+.flex-row-between-center {
+  @apply flex items-center justify-between;
+}
+.flex-row-around-center {
+  @apply flex items-center justify-around;
+}
+.flex-col-start {
+  @apply flex flex-col items-start justify-start;
+}
+.flex-col-end {
+  @apply flex flex-col items-end justify-end;
+}
+.flex-col-center {
+  @apply flex flex-col items-center justify-center;
+}
+.flex-col-center-start {
+  @apply flex flex-col items-start justify-center;
+}
+.flex-col-between-start {
+  @apply flex flex-col items-start justify-between;
+}
+.flex-col-around-start {
+  @apply flex flex-col items-start justify-around;
+}
+.flex-col-between-center {
+  @apply flex flex-col items-center justify-between;
+}

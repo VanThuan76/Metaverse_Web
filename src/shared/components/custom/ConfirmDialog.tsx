@@ -1,0 +1,48 @@
+import { useState } from 'react';
+import { Button } from '@/src/shared/components/ui/button';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/src/shared/components/ui/dialog';
+
+type Props = {
+  className?: string;
+  title?: React.ReactNode;
+  content?: React.ReactNode;
+  triggerCpn: React.ReactNode;
+  visibleBtn?: boolean;
+  onOk: () => void;
+};
+
+export function ConfirmDialog(props: Props) {
+  const [open, setOpen] = useState(false);
+  return (
+    <Dialog open={open} onOpenChange={() => setOpen(!open)}>
+      <DialogTrigger asChild>{props.triggerCpn}</DialogTrigger>
+      <DialogContent className={`sm:max-w-[425px] ${props.className}`}>
+        <DialogHeader>
+          <DialogTitle>{props.title}</DialogTitle>
+          <DialogDescription>{props.content}</DialogDescription>
+        </DialogHeader>
+        {!props.visibleBtn && (
+          <DialogFooter>
+            <Button
+              type='submit'
+              onClick={() => {
+                setOpen(false);
+                props.onOk();
+              }}
+            >
+              Đồng ý
+            </Button>
+          </DialogFooter>
+        )}
+      </DialogContent>
+    </Dialog>
+  );
+}
