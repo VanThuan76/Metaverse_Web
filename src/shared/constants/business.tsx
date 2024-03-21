@@ -9,3 +9,9 @@ export const iconSolutionChildSection = [
   <IconEducation key={'education'} />,
   <IconEntertainment key={'entertainment'} />,
 ];
+
+export const logoPartner = [
+  '/images/partner/thecup_logo.png',
+  'https://sba.net.vn/wp-content/themes/indutri/images/logo-mobile.png',
+  'https://theme.hstatic.net/200000563047/1000913701/14/logo.png?v=342',
+];

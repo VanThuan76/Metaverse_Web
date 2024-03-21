@@ -7,6 +7,9 @@ const nextConfig = {
   typescript: {
     tsconfigPath: './tsconfig.json',
   },
+  image: {
+    domains: ['sba.net.vn', 'theme.hstatic.net'],
+  },
   webpack: config => {
     if (!config.experiments) {
       config.experiments = {};

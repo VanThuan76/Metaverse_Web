@@ -57,3 +57,15 @@
 .flex-col-between-center {
   @apply flex flex-col items-center justify-between;
 }
+
+.bg-default-solution-card {
+  background-color: #fff;
+  color: #000;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+.bg-hover-solution-card {
+  background: linear-gradient(146.05deg, #1b3864 0%, #e6eaef 100%);
+  color: #fff;
+}

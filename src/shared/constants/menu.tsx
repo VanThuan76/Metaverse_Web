@@ -97,41 +97,22 @@ export function ValidMenus() {
   //   return useMemo(() => APP_MENU.filter(item => item.userType?.includes(userType!)), [userType]);
   return APP_MENU;
 }
-type SHORTCUT_MENU = {
-  title: string;
-  href: string;
-};
-export const SHORTCUT_MENU: SHORTCUT_MENU[] = [
-  {
-    title: 'Khách hàng cá nhân',
-    href: '/admin/crm/individual_customers',
-  },
-  {
-    title: 'Đơn hàng',
-    href: '/order',
-  },
-  {
-    title: 'Đặt lịch',
-    href: '/order-schedule',
-  },
-];
 
 export const menuWebsitePath: { path: string; children?: string[] }[] = [
   {
     path: 'home',
   },
   {
-    path: 'introduction',
+    path: 'solution',
   },
   {
-    path: 'services',
-    children: ['price_list', 'promotion'],
+    path: 'about_us',
   },
   {
     path: 'news',
   },
   {
-    path: 'contact',
+    path: 'recruiment',
   },
 ];
 export const footerContactData = {

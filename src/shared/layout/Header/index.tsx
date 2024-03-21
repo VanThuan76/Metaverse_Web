@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
-// import ListMenu from '@/src/shared/components/common/website/layout/header/ListMenu';
-// import HambergerMenu from '@/src/shared/components/common/website/layout/header/HambergerMenu';
 import SwitchLanguageMode from '@/src/shared/components/custom/SwitchLanguageMode';
 import ThemeModeToggle from '@/src/shared/components/custom/ToggleThemeMode';
+import TextLogo from '@/src/shared/components/common/website/TextLogo';
+import HambergerMenu from './HambergerMenu';
+import ListMenu from './ListMenu';
 import { menuWebsitePath } from '@/src/shared/constants/menu';
 
 const HeaderLayoutWebsite = () => {
@@ -13,14 +14,12 @@ const HeaderLayoutWebsite = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
       if (scrollTop > 0 && !isScrolled) {
         setIsScrolled(true);
       } else if (scrollTop === 0 && isScrolled) {
         setIsScrolled(false);
       }
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -34,25 +33,21 @@ const HeaderLayoutWebsite = () => {
       transition={{ duration: 0.3 }}
       className={`flex-row-between-center top-0 z-50 w-full gap-5 bg-[var(--main-color)] px-5 text-white transition md:px-10 ${
         isScrolled
-          ? 'light:text-black border-black-300 light:bg-[#876445] sticky inset-0 border-b-[1px] border-opacity-50 bg-opacity-10 backdrop-blur backdrop-filter duration-500 ease-in-out'
-          : 'sticky bg-opacity-100 duration-500 ease-in-out'
+          ? 'border-black-300 sticky inset-0 border-b-[1px] border-opacity-50 bg-[var(--primary-color)] bg-opacity-10 text-black backdrop-blur backdrop-filter duration-500 ease-in-out'
+          : 'absolute bg-transparent duration-500 ease-in-out'
       }`}
     >
-      <div className='flex-row-center absolute gap-2'>
-        <div className='flex-row-center w-full cursor-pointer gap-5'>
-          {/* <IconLogoLight color='#fff' onClick={() => router.push('/')} /> */}
-        </div>
-        <div className='ml-5 hidden min-w-[500px] items-center justify-center gap-10 dark:text-white lg:flex'>
-          {/* <ListMenu menuPath={menuWebsitePath} /> */}
-        </div>
+      <div className='flex-row-center cursor-pointer gap-5'>
+        <TextLogo onClick={() => router.push('/')} className='text-lg md:text-2xl lg:text-4xl' />
       </div>
-      <div className='flex-row-center absolute right-5 gap-2'>
-        <div className='flex-row-center w-full gap-4'>
-          {/* ///Options Menu */}
+      <div className='grid w-full items-center justify-end gap-2 md:grid-cols-1 lg:grid-cols-5'>
+        <div className='col-span-4 ml-5 hidden w-full items-end justify-end gap-10 lg:flex'>
+          <ListMenu menuPath={menuWebsitePath} />
+        </div>
+        <div className='lg:flex-row-center col-span-1 flex w-full items-center justify-end gap-4'>
           <SwitchLanguageMode className='hidden md:block' />
           <ThemeModeToggle className='hidden md:block' />
-          {/* ///Hamberger Menu */}
-          {/* <HambergerMenu /> */}
+          <HambergerMenu />
         </div>
       </div>
     </motion.section>

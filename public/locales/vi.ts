@@ -18,9 +18,6 @@ const VnScript = {
       success_project: 'Dự án thành công',
       typical_project: 'Một số dự án tiêu biểu của Metaverse ',
     },
-    menu: {
-      test: '',
-    },
     find_more: 'Tìm hiểu thêm',
     connect: 'Kết nối',
     support: 'Hỗ trợ',

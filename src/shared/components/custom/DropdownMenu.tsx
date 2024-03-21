@@ -18,8 +18,8 @@ const DropdownMenuCustomize = ({ title, menuItem }: Props) => {
       <DropdownMenuTrigger>{title}</DropdownMenuTrigger>
       <DropdownMenuContent>
         {menuItem.map((item, idx) => {
-          const key = item as keyof typeof trans.common.menu;
-          const value = trans.common.menu[key];
+          const key = item as keyof typeof trans.common.business;
+          const value = trans.common.business[key];
           return (
             <DropdownMenuItem key={idx} onClick={() => router.push(item)}>
               {value}
