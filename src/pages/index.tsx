@@ -1,7 +1,8 @@
 import Head from 'next/head';
-import React from 'react';
+import React, { useState } from 'react';
 import useTrans from '@/src/shared/hooks/useTrans';
 import dynamic from 'next/dynamic';
+import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
@@ -11,6 +12,15 @@ import TitleSection from '@/src/shared/components/common/website/TitleSection';
 import SolutionCard from '@/src/shared/components/common/website/card/solution';
 import { iconSolutionChildSection, logoPartner } from '@/src/shared/constants/business';
 import { PreImage } from '@/src/shared/components/custom/PreImage';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from '@/src/shared/components/ui/carousel';
+import IconNext from '../shared/components/icons/business/IconNext';
+import IconQuote from '../shared/components/icons/business/IconQuote';
 
 const ScrollRevealWrapper = dynamic(() => import('@/src/shared/components/custom/ScrollRevealWrapper'), {
   ssr: false,
@@ -18,6 +28,7 @@ const ScrollRevealWrapper = dynamic(() => import('@/src/shared/components/custom
 
 function Home() {
   const { trans } = useTrans();
+  const [contentAboutUs, setContentAboutUs] = useState<{ title: string; content: string }>();
   return (
     <React.Fragment>
       <Head>
@@ -50,17 +61,81 @@ function Home() {
           })}
         </div>
       </ScrollRevealWrapper>
+      <ScrollRevealWrapper title='ABOUT_US'>
+        <TitleSection title={trans.common.business.about_us} description='' />
+        <div className='relative mx-auto mb-16 flex w-full flex-col items-center justify-center gap-10 md:flex-row'>
+          {trans.page.home.section_about_us.child_section.map((item, index) => (
+            <motion.button
+              key={index}
+              type='button'
+              transition={{ duration: 0.5 }}
+              className={`${
+                item === contentAboutUs
+                  ? 'duration-750 bg-[var(--primary-color)] text-white transition ease-in-out'
+                  : 'bg-white'
+              } relative flex w-48 cursor-pointer items-center justify-center rounded-full border border-[#000] px-4 py-4 text-left text-black`}
+              onClick={() => setContentAboutUs(item)}
+            >
+              <motion.p
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className='text-center text-2xl'
+              >{`${item.title}`}</motion.p>
+            </motion.button>
+          ))}
+          <div className='absolute z-[-10] hidden w-2/3 border border-[#1B3864] md:block'></div>
+        </div>
+        <Carousel className='relative w-full'>
+          <CarouselContent>
+            {trans.page.home.section_about_us.child_section.map((item, index) => (
+              <CarouselItem key={index} className='flex w-full items-center justify-center'>
+                <div className='relative min-h-[250px] w-[70%] rounded-xl bg-slate-200 p-8 text-center text-lg md:text-xl lg:text-2xl'>
+                  {contentAboutUs?.content}
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <IconQuote className='absolute -top-10 left-36' />
+          <IconNext className='cursor-poiter absolute bottom-1/2 top-1/3 md:right-12 lg:right-24' />
+        </Carousel>
+        <div className='mt-5 grid w-full grid-cols-1 items-start justify-start gap-10 md:grid-cols-4'>
+          {trans.page.home.section_about_us.child_section.map((item, index) => {
+            return (
+              <div
+                key={index}
+                className='border-card-aboutUs flex flex-col items-center justify-start pr-6 text-center'
+              >
+                <p className='text-5xl text-[#1B3864]'>+05</p>
+                <h1 className='py-3 text-2xl'>năm hình thành và phát triển</h1>
+              </div>
+            );
+          })}
+        </div>
+      </ScrollRevealWrapper>
       <ScrollRevealWrapper title='TESTIMONIAL'>
         <TitleSection
           title={trans.common.business.customer}
           description={trans.page.home.section_customer.description}
         />
-        <div className='mt-10 hidden w-full items-start justify-between md:flex'>
+        <div className='mt-10 flex w-full items-start justify-between'>
           <Swiper
             className='mySwiper'
             modules={[Autoplay, Pagination, Navigation]}
             slidesPerView={3}
-            spaceBetween={0}
+            spaceBetween={30}
+            breakpoints={{
+              375: {
+                slidesPerView: 1,
+              },
+              745: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+              },
+            }}
             centeredSlides={true}
             navigation={false}
             autoplay={{
@@ -68,13 +143,14 @@ function Home() {
               disableOnInteraction: false,
             }}
             loop
+            pagination={true}
           >
             {logoPartner.map((item, idx) => (
-              <SwiperSlide key={idx}>
-                <div className={`relative cursor-pointer`}>
+              <SwiperSlide key={idx} className='!ml-5'>
+                <div className={`relative mb-5 cursor-pointer`}>
                   <PreImage
-                    width={232}
-                    height={100}
+                    width={300}
+                    height={150}
                     src={item as string}
                     layer={false}
                     alt={item}

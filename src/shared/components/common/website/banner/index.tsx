@@ -30,7 +30,7 @@ const Banner = (props: PropsBanner) => {
         className={`mx-auto flex h-full w-full flex-col items-start justify-start gap-5 p-4 tracking-wide text-white md:px-28 lg:px-36`}
       >
         <AnimatePresence mode='wait'>
-          <TextLogo title={data.title} />
+          <TextLogo title={data.title} className='!text-4xl md:!text-5xl lg:!text-7xl' />
         </AnimatePresence>
         <motion.div className='mt-2 text-2xl font-semibold leading-10 md:mt-3 md:text-3xl md:leading-[50px] lg:mt-5 lg:text-5xl lg:leading-[60px]'>
           {data.description}

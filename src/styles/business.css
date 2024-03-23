@@ -69,3 +69,7 @@
   background: linear-gradient(146.05deg, #1b3864 0%, #e6eaef 100%);
   color: #fff;
 }
+.border-card-aboutUs {
+  border-right: 2px solid transparent;
+  border-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), #516b94, rgba(0, 0, 0, 0)) 1 100%;
+}

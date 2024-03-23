@@ -21,9 +21,7 @@ const TextLogo = (props: Props) => {
     <motion.span
       variants={staggerChildren}
       animate='animate'
-      className={`text-left text-4xl font-bold capitalize md:text-5xl lg:text-7xl ${!props.title && bungee.className} ${
-        props.className
-      }`}
+      className={`text-left font-bold capitalize ${bungee.className} ${props.className}`}
       onClick={props.onClick}
     >
       {props.title ? props.title : trans.common.business.title}
