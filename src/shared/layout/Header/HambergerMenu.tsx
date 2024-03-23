@@ -17,12 +17,12 @@ const HambergerMenu = () => {
         <SheetTrigger asChild>
           <Menu className='cursor-pointer' />
         </SheetTrigger>
-        <SheetContent className='w-full bg-[var(--main-color)] text-white' side={'top'}>
+        <SheetContent className='w-full bg-[var(--primary-color)] text-white' side={'top'}>
           <div className='flex-col-between-start h-full w-full'>
-            <div className='-mt-5 grid w-full cursor-pointer grid-cols-3 items-center justify-between gap-5'>
+            <div className='-mt-5 grid w-full cursor-pointer grid-cols-2 items-center justify-between gap-5 md:grid-cols-3'>
               <TextLogo onClick={() => router.push('/')} className='text-lg md:text-2xl lg:text-4xl' />
               <h1 className='hidden text-center text-lg font-bold sm:block'>{trans.common.business.title}</h1>
-              <SwitchLanguageMode className='flex w-full items-end justify-end md:hidden' />
+              <SwitchLanguageMode className='flex w-full items-end justify-end pr-5 md:hidden md:pr-0' />
             </div>
             <div className='flex-col-start mt-5 h-full w-full gap-4'>
               <ListMenu menuPath={menuWebsitePath} className='!-left-3 !bottom-0 !h-[25px] !w-[2px]' />

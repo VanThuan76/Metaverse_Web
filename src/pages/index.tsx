@@ -12,15 +12,12 @@ import TitleSection from '@/src/shared/components/common/website/TitleSection';
 import SolutionCard from '@/src/shared/components/common/website/card/solution';
 import { iconSolutionChildSection, logoPartner } from '@/src/shared/constants/business';
 import { PreImage } from '@/src/shared/components/custom/PreImage';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselPrevious,
-  CarouselNext,
-} from '@/src/shared/components/ui/carousel';
-import IconNext from '../shared/components/icons/business/IconNext';
-import IconQuote from '../shared/components/icons/business/IconQuote';
+import { Carousel, CarouselContent, CarouselItem } from '@/src/shared/components/ui/carousel';
+import IconNext from '@/src/shared/components/icons/business/IconNext';
+import IconQuote from '@/src/shared/components/icons/business/IconQuote';
+import convertStringWithSpace from '@/src/shared/utils/functions/convertString';
+import FormConnect from '@/src/shared/components/common/website/FormConnect';
+import CollapsibleMotion from '../shared/components/common/website/CollapsibleMotion';
 
 const ScrollRevealWrapper = dynamic(() => import('@/src/shared/components/custom/ScrollRevealWrapper'), {
   ssr: false,
@@ -28,7 +25,12 @@ const ScrollRevealWrapper = dynamic(() => import('@/src/shared/components/custom
 
 function Home() {
   const { trans } = useTrans();
-  const [contentAboutUs, setContentAboutUs] = useState<{ title: string; content: string }>();
+  const [contentAboutUs, setContentAboutUs] = useState<{ title: string; content: string }>(
+    trans.page.home.section_about_us.child_section[0],
+  );
+  const findIndexContentAboutUs = trans.page.home.section_about_us.child_section.findIndex(
+    item => item.title === contentAboutUs.title && item.content === contentAboutUs.content,
+  );
   return (
     <React.Fragment>
       <Head>
@@ -62,54 +64,69 @@ function Home() {
         </div>
       </ScrollRevealWrapper>
       <ScrollRevealWrapper title='ABOUT_US'>
-        <TitleSection title={trans.common.business.about_us} description='' />
-        <div className='relative mx-auto mb-16 flex w-full flex-col items-center justify-center gap-10 md:flex-row'>
-          {trans.page.home.section_about_us.child_section.map((item, index) => (
-            <motion.button
-              key={index}
-              type='button'
-              transition={{ duration: 0.5 }}
-              className={`${
-                item === contentAboutUs
-                  ? 'duration-750 bg-[var(--primary-color)] text-white transition ease-in-out'
-                  : 'bg-white'
-              } relative flex w-48 cursor-pointer items-center justify-center rounded-full border border-[#000] px-4 py-4 text-left text-black`}
-              onClick={() => setContentAboutUs(item)}
-            >
-              <motion.p
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className='text-center text-2xl'
-              >{`${item.title}`}</motion.p>
-            </motion.button>
-          ))}
-          <div className='absolute z-[-10] hidden w-2/3 border border-[#1B3864] md:block'></div>
-        </div>
-        <Carousel className='relative w-full'>
-          <CarouselContent>
-            {trans.page.home.section_about_us.child_section.map((item, index) => (
-              <CarouselItem key={index} className='flex w-full items-center justify-center'>
-                <div className='relative min-h-[250px] w-[70%] rounded-xl bg-slate-200 p-8 text-center text-lg md:text-xl lg:text-2xl'>
-                  {contentAboutUs?.content}
+        <div className='flex w-full flex-col items-center justify-center gap-16'>
+          <div className='flex flex-col gap-4'>
+            <TitleSection title={trans.common.business.about_us} description='' />
+            <div className='relative mx-auto mb-16 hidden w-full flex-col items-center justify-center gap-10 md:flex md:flex-row'>
+              {trans.page.home.section_about_us.child_section.map((item, index) => (
+                <motion.button
+                  key={index}
+                  type='button'
+                  transition={{ duration: 0.5 }}
+                  className={`${
+                    item === contentAboutUs
+                      ? 'duration-750 bg-[var(--primary-color)] text-white transition ease-in-out'
+                      : 'bg-white'
+                  } relative flex w-48 cursor-pointer items-center justify-center rounded-full border border-[#000] px-4 py-4 text-left text-black`}
+                  onClick={() => setContentAboutUs(item)}
+                >
+                  <motion.p
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className='text-center text-2xl'
+                  >{`${item.title}`}</motion.p>
+                </motion.button>
+              ))}
+              <div className='absolute z-[-10] hidden w-2/3 border border-[var(--primary-color)] md:block'></div>
+            </div>
+          </div>
+          <Carousel className='relative w-full'>
+            <CarouselContent>
+              {trans.page.home.section_about_us.child_section.map((item, index) => (
+                <CarouselItem key={index} className='flex w-full items-center justify-center'>
+                  <div className='relative min-h-[250px] w-full rounded-xl bg-slate-200 p-8 text-center text-lg md:text-xl lg:text-2xl'>
+                    {contentAboutUs?.content}
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <IconQuote className='absolute -top-10 left-5 md:left-20' />
+            <IconNext
+              onClick={() =>
+                setContentAboutUs(
+                  trans.page.home.section_about_us.child_section[
+                    findIndexContentAboutUs + 1 === trans.page.home.section_about_us.child_section.length
+                      ? 0
+                      : findIndexContentAboutUs + 1
+                  ],
+                )
+              }
+              className='cursor-poiter absolute -right-20 bottom-1/2 top-1/3 hidden cursor-pointer transition-all duration-300 ease-in-out hover:scale-110 md:block'
+            />
+          </Carousel>
+          <div className='grid w-full grid-cols-1 items-start justify-start gap-5 md:grid-cols-4 md:gap-10'>
+            {trans.page.home.section_about_us.description.map((item, index) => {
+              return (
+                <div
+                  key={index}
+                  className='border-card-aboutUs flex flex-col items-center justify-start pr-6 text-center'
+                >
+                  <p className='text-5xl text-[var(--primary-color)]'>{convertStringWithSpace(item)[1]}</p>
+                  <h1 className='py-3 text-2xl'>{convertStringWithSpace(item)[2]}</h1>
                 </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <IconQuote className='absolute -top-10 left-36' />
-          <IconNext className='cursor-poiter absolute bottom-1/2 top-1/3 md:right-12 lg:right-24' />
-        </Carousel>
-        <div className='mt-5 grid w-full grid-cols-1 items-start justify-start gap-10 md:grid-cols-4'>
-          {trans.page.home.section_about_us.child_section.map((item, index) => {
-            return (
-              <div
-                key={index}
-                className='border-card-aboutUs flex flex-col items-center justify-start pr-6 text-center'
-              >
-                <p className='text-5xl text-[#1B3864]'>+05</p>
-                <h1 className='py-3 text-2xl'>năm hình thành và phát triển</h1>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </ScrollRevealWrapper>
       <ScrollRevealWrapper title='TESTIMONIAL'>
@@ -160,6 +177,15 @@ function Home() {
               </SwiperSlide>
             ))}
           </Swiper>
+        </div>
+      </ScrollRevealWrapper>
+      <ScrollRevealWrapper title='FORM_CONNECT'>
+        <FormConnect />
+      </ScrollRevealWrapper>
+      <ScrollRevealWrapper title='TAKE_CARE' className='bg-care-fade'>
+        <TitleSection title={trans.common.business.care} description={trans.page.home.section_care.description} />
+        <div className='w-full items-start justify-center'>
+          <CollapsibleMotion data={trans.page.home.section_care.child_section} />
         </div>
       </ScrollRevealWrapper>
     </React.Fragment>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { setCookie } from 'cookies-next';
 import { APP_SAVE_KEY } from '@/src/shared/constants/main';
-import FooterLayoutWebsite from '@/src/shared/layout/FooterLayoutWebsite';
+import FooterLayoutWebsite from '@/src/shared/layout/Footer';
 import HeaderLayoutWebsite from '@/src/shared/layout/Header';
 interface Props {
   children: React.ReactNode;

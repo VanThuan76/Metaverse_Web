@@ -17,6 +17,9 @@ const EnglishScript = {
       why_choose_us: 'Why Choose Metaverse?',
       success_project: 'Successful Projects',
       typical_project: 'Some Typical Projects of Metaverse',
+      address: '3rd Floor, 111 Nguyen Xien, Thanh Xuan, Hanoi',
+      phone_number: '0879916969',
+      email: 'support@metaverse-solution.vn',
     },
     menu: {
       test: '',
@@ -27,6 +30,7 @@ const EnglishScript = {
     terms_of_use: 'Terms of Use',
     vietnamese: 'Vietnamese',
     english: 'English',
+    copyright: 'Copyright by Metaverse Company',
   },
   page: {
     home: {
@@ -255,8 +259,11 @@ const EnglishScript = {
         placeholder: 'Enter your email',
       },
     ],
+    choose_tile: 'What you care about',
     options: ['Business Management', 'Asset Valuation', 'Online Education', 'Entertainment Applications'],
     hint: 'If you are interested in something else, please let us know.',
+    connect_success: 'Successful connection',
+    description_success: 'You have successfully connected to the Metaverse. We will contact you as soon as possible.',
   },
 };
 

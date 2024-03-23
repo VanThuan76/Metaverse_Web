@@ -32,6 +32,16 @@ function Solution() {
           textBtn={trans.common.find_more}
         />
       </ScrollRevealWrapper>
+      <ScrollRevealWrapper title='BANNER' full={true}>
+        <Banner
+          data={{
+            title: trans.common.business.solution,
+            description: trans.page.solution.section_banner.description,
+            image: '/images/banner/solution_1.png',
+          }}
+          textBtn={trans.common.find_more}
+        />
+      </ScrollRevealWrapper>
     </React.Fragment>
   );
 }

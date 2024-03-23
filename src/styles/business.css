@@ -57,7 +57,9 @@
 .flex-col-between-center {
   @apply flex flex-col items-center justify-between;
 }
-
+.bg-care-fade {
+  background: radial-gradient(70.87% 56.61% at 50% 50%, rgba(81, 107, 148, 0.5) 0%, rgba(255, 255, 255, 0.5) 100%);
+}
 .bg-default-solution-card {
   background-color: #fff;
   color: #000;
@@ -72,4 +74,10 @@
 .border-card-aboutUs {
   border-right: 2px solid transparent;
   border-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), #516b94, rgba(0, 0, 0, 0)) 1 100%;
+}
+
+@media (max-width: 745px) {
+  .border-card-aboutUs {
+    border: none;
+  }
 }

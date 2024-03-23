@@ -20,10 +20,10 @@ export default function InputText({ fieldName, form, label, placeHolder, classNa
       control={form.control}
       name={fieldName}
       render={({ field }) => (
-        <FormItem className={`w-full text-start ${className}`}>
+        <FormItem className='w-full text-start'>
           {label && <FormLabel>{label}</FormLabel>}
           <FormControl>
-            <Input placeholder={placeHolder} {...field} value={value || ''} />
+            <Input placeholder={placeHolder} {...field} value={value || ''} className={`${className}`} />
           </FormControl>
           <FormMessage />
         </FormItem>

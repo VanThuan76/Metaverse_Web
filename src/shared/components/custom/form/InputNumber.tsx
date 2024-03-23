@@ -9,9 +9,10 @@ type Props = {
   fieldName: string;
   label?: string;
   placeHolder?: string;
+  className?: string;
 };
 
-export default function InputNumber({ fieldName, form, label, placeHolder }: Props) {
+export default function InputNumber({ fieldName, form, label, placeHolder, className }: Props) {
   const value = form.watch(fieldName);
   return (
     <FormField
@@ -21,7 +22,7 @@ export default function InputNumber({ fieldName, form, label, placeHolder }: Pro
         <FormItem>
           {label && <FormLabel>{label}</FormLabel>}
           <FormControl>
-            <Input placeholder={placeHolder} {...field} type='number' value={value || ''} />
+            <Input placeholder={placeHolder} {...field} type='number' value={value || ''} className={`${className}`} />
           </FormControl>
           <FormMessage />
         </FormItem>

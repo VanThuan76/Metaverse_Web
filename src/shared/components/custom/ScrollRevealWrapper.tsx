@@ -7,9 +7,10 @@ interface Props {
   children: React.ReactNode;
   revealConfig?: object;
   full?: boolean;
+  className?: string;
 }
 
-const ScrollRevealWrapper: FC<Props> = ({ children, title, style, revealConfig, full = false }) => {
+const ScrollRevealWrapper: FC<Props> = ({ children, title, style, revealConfig, full = false, className }) => {
   const sectionRef = useRef<HTMLElement>(null);
   useEffect(() => {
     if (sectionRef.current) {
@@ -29,7 +30,7 @@ const ScrollRevealWrapper: FC<Props> = ({ children, title, style, revealConfig, 
       data-testid='section'
       className={`relative mx-auto flex w-full flex-col items-center justify-center overflow-hidden ${
         !full && 'p-4 md:px-28 md:py-10 lg:px-36 lg:py-[80px]'
-      }`}
+      } ${className}`}
     >
       {children}
     </section>

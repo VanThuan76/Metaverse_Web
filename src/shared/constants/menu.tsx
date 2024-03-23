@@ -112,7 +112,7 @@ export const menuWebsitePath: { path: string; children?: string[] }[] = [
     path: 'news',
   },
   {
-    path: 'recruiment',
+    path: 'recruitment',
   },
 ];
 export const footerContactData = {

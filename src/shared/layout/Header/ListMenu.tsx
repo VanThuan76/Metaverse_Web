@@ -29,7 +29,7 @@ const ListMenu = ({ menuPath, className }: Props) => {
                   </div>
                   {router.asPath.split('/')[1] === item.path ? (
                     <motion.div
-                      className={`absolute bottom-[-20px] left-0 right-0 z-0 h-[4px] rounded-[8px] bg-white ${className}`}
+                      className={`absolute bottom-[-10px] left-0 right-0 z-0 h-[4px] rounded-[8px] bg-white ${className}`}
                       layoutId='underline'
                     />
                   ) : null}

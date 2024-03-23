@@ -10,13 +10,16 @@ const VnScript = {
       application_entertainment: 'Ứng dụng trong giải trí',
       about_us: 'Về chúng tôi',
       news: 'Tin tức',
-      recruiment: 'Tuyển dụng',
+      recruitment: 'Tuyển dụng',
       contect: 'Liên hệ',
       customer: 'Khách hàng',
       care: 'Có thể bạn quan tâm',
       why_choose_us: 'Tại sao nên chọn Metaverse?',
       success_project: 'Dự án thành công',
-      typical_project: 'Một số dự án tiêu biểu của Metaverse ',
+      typical_project: 'Một số dự án tiêu biểu của Metaverse',
+      address: 'Tầng 3, 111 Nguyễn Xiển, Thanh Xuân, Hà Nội',
+      phone_number: '0879916969',
+      email: 'support@metaverse-solution.vn',
     },
     find_more: 'Tìm hiểu thêm',
     connect: 'Kết nối',
@@ -24,6 +27,7 @@ const VnScript = {
     terms_of_use: 'Điều khoản sử dụng',
     vietnamese: 'Tiếng Việt',
     english: 'Tiếng Anh',
+    copyright: 'Bản quyền thuộc về Công ty Metaverse',
   },
   page: {
     home: {
@@ -258,8 +262,11 @@ const VnScript = {
         placeholder: 'Nhập email của bạn',
       },
     ],
+    choose_tile: 'Điều bạn quan tâm',
     options: ['Quản lý doanh nghiệp', 'Định giá tài sản', 'Giáo dục trực tuyến', 'Ứng dụng trong giải trí'],
     hint: 'Nếu bạn quan tâm điều khác, vui lòng cho chúng tôi biết.',
+    connect_success: 'Kết nối thành công',
+    description_success: 'Bạn đã kết nối với Metaverse thành công. Chúng tôi sẽ liên hệ với bạn sớm nhất.',
   },
 };
 export default VnScript;
