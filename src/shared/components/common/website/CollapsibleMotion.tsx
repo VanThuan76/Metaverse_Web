@@ -39,7 +39,7 @@ const CollapsibleMotion = (props: Props) => {
                 <h1 className='p-3 text-lg font-bold md:p-5 md:text-2xl'>{item.title}</h1>
               </div>
               <motion.div
-                className='relative ml-10 mr-2 flex flex-col items-start justify-start rounded-2xl border-2 border-solid bg-[#E6EAEF] p-3 text-black md:ml-20 md:mr-5 md:p-5'
+                className='relative ml-10 mr-2 flex flex-col items-start justify-start rounded-2xl border-2 border-solid bg-[var(--default-color)] p-3 text-black md:ml-20 md:mr-5 md:p-5'
                 animate={isHovered ? 'visible' : 'hidden'}
                 variants={variants}
               >

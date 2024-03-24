@@ -35,7 +35,11 @@ const SolutionCard = (data: Props) => {
             </h3>
           ))}
         </div>
-        <ButtonMotion text={trans.common.find_more} isMount={isHovered} onClick={() => router.push(data.link)} />
+        <ButtonMotion
+          text={trans.common.find_more}
+          isMount={isHovered}
+          onClick={() => router.push(`solution/${data.link}`)}
+        />
       </div>
     </motion.div>
   );

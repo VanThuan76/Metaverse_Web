@@ -8,6 +8,7 @@
   --warning-color: #fbb000;
   --success-color: #299647;
   --ready-color: #4286f4;
+  --default-color: #e6eaef;
 }
 .padding-section {
   @apply px-4 md:px-24 lg:px-32 xl:px-16;

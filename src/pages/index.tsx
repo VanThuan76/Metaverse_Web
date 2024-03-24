@@ -59,7 +59,22 @@ function Home() {
         />
         <div className='mt-10 grid min-h-[250px] w-full grid-cols-1 gap-5 overflow-hidden md:grid-cols-2 lg:grid-cols-4'>
           {trans.page.home.section_solution.child_section.map((item, idx) => {
-            return <SolutionCard key={idx} title={item} icon={iconSolutionChildSection[idx]} link='/' />;
+            return (
+              <SolutionCard
+                key={idx}
+                title={item}
+                icon={iconSolutionChildSection[idx]}
+                link={
+                  idx === 0
+                    ? 'business-management'
+                    : idx === 1
+                      ? 'asset-valuation'
+                      : idx === 2
+                        ? 'online-education'
+                        : 'application-entertainment'
+                }
+              />
+            );
           })}
         </div>
       </ScrollRevealWrapper>

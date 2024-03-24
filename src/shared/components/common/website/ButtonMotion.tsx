@@ -8,6 +8,7 @@ interface ButtonProps {
   type?: 'button' | 'submit' | 'reset';
   className?: string;
   color?: string;
+  icon?: boolean;
 }
 
 const buttonVariants = {
@@ -15,7 +16,7 @@ const buttonVariants = {
   hover: { opacity: 1 },
 };
 const ButtonMotion = (props: ButtonProps) => {
-  const { isMount = true, type = 'button', text, onClick, className, color = '#fff' } = props;
+  const { isMount = true, type = 'button', text, onClick, className, color = '#fff', icon = true } = props;
   return (
     <motion.button
       whileHover={{ scale: 1.1 }}
@@ -27,7 +28,7 @@ const ButtonMotion = (props: ButtonProps) => {
       onClick={onClick}
     >
       <motion.p className='text-sm md:text-base'>{text}</motion.p>
-      <IconArrowRight color={color} className='self-end' />
+      {icon && <IconArrowRight color={color} className='self-end' />}
     </motion.button>
   );
 };
