@@ -12,6 +12,7 @@ const EnglishScript = {
       news: 'News',
       recruitment: 'Recruitment',
       contact: 'Contact',
+      contact_info: 'Contact Info',
       customer: 'Customers',
       care: 'You Might Care',
       why_choose_us: 'Why Choose Metaverse?',

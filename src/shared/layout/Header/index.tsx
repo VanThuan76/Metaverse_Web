@@ -8,8 +8,11 @@ import TextLogo from '@/src/shared/components/common/website/TextLogo';
 import HambergerMenu from './HambergerMenu';
 import ListMenu from './ListMenu';
 import { menuWebsitePath } from '@/src/shared/constants/menu';
+import { Button } from '@/src/shared/components/ui/button';
+import useTrans from '@/src/shared/hooks/useTrans';
 
 const HeaderLayoutWebsite = () => {
+  const { trans } = useTrans();
   const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
   useEffect(() => {
@@ -48,8 +51,14 @@ const HeaderLayoutWebsite = () => {
           <ListMenu menuPath={menuWebsitePath} />
         </div>
         <div className='lg:flex-row-center col-span-1 flex w-full items-center justify-end gap-4'>
+          <Button
+            className='rounded-full bg-[var(--default-color)] text-black hover:bg-[var(--primary-color)] hover:text-white'
+            onClick={() => router.push('/contact')}
+          >
+            {trans.common.business.contact}
+          </Button>
           <SwitchLanguageMode className='hidden md:block' />
-          <ThemeModeToggle className='hidden md:block' />
+          {/* <ThemeModeToggle className='hidden md:block' /> */}
           <HambergerMenu />
         </div>
       </div>

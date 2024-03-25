@@ -2,13 +2,15 @@ import Head from 'next/head';
 import React from 'react';
 import useTrans from '@/src/shared/hooks/useTrans';
 import dynamic from 'next/dynamic';
+import { useRouter } from 'next/router';
+import { Link } from 'react-scroll';
+
 import LayoutWebsite from '@/src/shared/layout/LayoutWebsite';
 import Banner from '@/src/shared/components/common/website/banner';
 import IconCheck from '@/src/shared/components/icons/business/IconCheck';
 import ButtonMotion from '@/src/shared/components/common/website/ButtonMotion';
-import { PreImage } from '@/src/shared/components/custom/PreImage';
 import FormConnect from '@/src/shared/components/common/website/FormConnect';
-import { useRouter } from 'next/router';
+import { PreImage } from '@/src/shared/components/custom/PreImage';
 
 const ScrollRevealWrapper = dynamic(() => import('@/src/shared/components/custom/ScrollRevealWrapper'), {
   ssr: false,
@@ -54,7 +56,7 @@ function Solution() {
         <link rel='icon' href='/logo.svg' />
         <link rel='apple-touch-icon' href='/logo.svg' />
       </Head>
-      <ScrollRevealWrapper title='BANNER' full={true}>
+      <ScrollRevealWrapper title='BANNER' full={true} className='relative'>
         <Banner
           data={{
             title: trans.common.business.solution,
@@ -63,9 +65,23 @@ function Solution() {
           }}
           textBtn={trans.common.find_more}
         />
-        {/* <Link to={sectionCode} smooth={true} duration={300} spy={true} offset={-100} className='cursor-pointer'>
-          {children}
-        </Link> */}
+        <div className='absolute bottom-10 hidden w-[80%] items-center justify-center overflow-hidden rounded-full bg-[var(--default-color)] md:flex'>
+          {sectionOverviews.map(item => {
+            return (
+              <Link
+                key={item.slug}
+                to={item.title}
+                smooth={true}
+                duration={300}
+                spy={true}
+                offset={-100}
+                className='flex w-full cursor-pointer items-center justify-center rounded-full hover:bg-[var(--primary-color)] hover:text-white'
+              >
+                <div className='p-3 lg:p-5'>{item.title}</div>
+              </Link>
+            );
+          })}
+        </div>
       </ScrollRevealWrapper>
       {sectionOverviews.map((item, idx) => (
         <ScrollRevealWrapper

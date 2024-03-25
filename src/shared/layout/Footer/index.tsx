@@ -31,10 +31,13 @@ const FooterLayoutWebsite = () => {
               <InformationFooter
                 title={trans.common.business.solution}
                 info={[
-                  { title: trans.common.business.business_management, link: '' },
-                  { title: trans.common.business.asset_valuation, link: '' },
-                  { title: trans.common.business.online_education, link: '' },
-                  { title: trans.common.business.application_entertainment, link: '' },
+                  { title: trans.common.business.business_management, link: '/solution/business-management' },
+                  { title: trans.common.business.asset_valuation, link: '/solution/asset-valuation' },
+                  { title: trans.common.business.online_education, link: '/solution/online-education' },
+                  {
+                    title: trans.common.business.application_entertainment,
+                    link: '/solution/application-entertainment',
+                  },
                 ]}
               />
             </div>
@@ -42,10 +45,9 @@ const FooterLayoutWebsite = () => {
               <InformationFooter
                 title={trans.common.business.about_us}
                 info={[
-                  { title: trans.common.business.about_us, link: '' },
-                  { title: trans.common.business.news, link: '' },
-                  { title: trans.common.business.asset_valuation, link: '' },
-                  { title: trans.common.business.application_entertainment, link: '' },
+                  { title: trans.common.business.about_us, link: '#' },
+                  { title: trans.common.business.news, link: '#' },
+                  { title: trans.common.business.recruitment, link: '#' },
                 ]}
               />
             </div>
@@ -53,9 +55,9 @@ const FooterLayoutWebsite = () => {
               <InformationFooter
                 title={trans.common.support}
                 info={[
-                  { title: 'FAQ', link: '' },
-                  { title: trans.common.connect, link: '' },
-                  { title: trans.common.terms_of_use, link: '' },
+                  { title: 'FAQ', link: '#' },
+                  { title: trans.common.connect, link: '#' },
+                  { title: trans.common.terms_of_use, link: '#' },
                 ]}
               />
             </div>

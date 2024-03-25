@@ -61,7 +61,7 @@ function SolutionDetail() {
           child_section={trans.page[pageSlug].section_information.child_section}
         />
       </ScrollRevealWrapper>
-      <ScrollRevealWrapper title='PROJECT'>
+      <ScrollRevealWrapper title='PROJECT' full={true} className='bg-[var(--default-color)] py-10'>
         <ProjectSuccess section_project={trans.page[pageSlug].section_project} />
       </ScrollRevealWrapper>
       <ScrollRevealWrapper title='FORM_CONNECT'>

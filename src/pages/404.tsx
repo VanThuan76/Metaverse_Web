@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect } from 'react';
 
-const Img404 = '/static/404.svg';
+const Img404 = '/404.png';
 
 export default function Page404() {
   useEffect(() => {

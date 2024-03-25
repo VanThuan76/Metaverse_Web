@@ -38,7 +38,7 @@ export function PreImage({ src, layer, ...rest }: Props) {
               !imageLoaded ? 'opacity-100' : 'opacity-0'
             }`}
           >
-            <img src='/default.png' alt='Default' className='h-full w-full' />
+            <img src='/default.png' alt='Default' className='h-full w-full object-cover' />
           </div>
         )}
       </div>

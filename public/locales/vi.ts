@@ -11,7 +11,8 @@ const VnScript = {
       about_us: 'Về chúng tôi',
       news: 'Tin tức',
       recruitment: 'Tuyển dụng',
-      contect: 'Liên hệ',
+      contact: 'Liên hệ',
+      contact_info: 'Thông tin liên hệ',
       customer: 'Khách hàng',
       care: 'Có thể bạn quan tâm',
       why_choose_us: 'Tại sao nên chọn Metaverse?',
@@ -272,15 +273,15 @@ const VnScript = {
         child_section: [
           {
             title: 'Hotline',
-            body: '+84 123 456 789',
+            body: '0879916969',
           },
           {
             title: 'Email',
-            body: 'support@mtv.com.vn',
+            body: 'support@metaverse-solution.vn',
           },
           {
             title: 'Địa chỉ',
-            body: 'Tòa 6th Element, đường Nguyễn Văn Huyên, phường Xuân La, quận Tây Hồ, thành phố Hà Nội',
+            body: 'Tầng 3, 111 Nguyễn Xiển, Thanh Xuân, Hà Nội',
           },
         ],
       },

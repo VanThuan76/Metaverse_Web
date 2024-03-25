@@ -24,6 +24,7 @@ const ScrollRevealWrapper: FC<Props> = ({ children, title, style, revealConfig, 
 
   return (
     <section
+      id={title}
       title={title || ''}
       ref={sectionRef}
       style={style}
