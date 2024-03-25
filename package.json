@@ -5,7 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "pm2 start ecosystem.config.js --env production",
+    "start": "next start",
+    "deploy:local": "next build && pm2 startOrRestart ecosystem.config.js --env local",
+    "deploy:dev": "next build && pm2 startOrRestart ecosystem.config.js --env dev",
+    "deploy:prod": "next build && pm2 startOrRestart ecosystem.config.js --env prod",
     "test": "jest --watch",
     "check-types": "tsc --pretty --noEmit",
     "check-format": "prettier --check .",
