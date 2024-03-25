@@ -151,6 +151,13 @@ const VnScript = {
           },
         ],
       },
+      section_project: [
+        {
+          title: 'Dự án quản lý doanh nghiệp Sen Bách Diệp',
+          description: 'Hệ thống quản lý hoạt động chuỗi Spa Sen Bách Diệp.',
+          image: '/images/project/sbd.png'
+        },
+      ],
     },
     solution_asset_valuation: {
       section_information: {
@@ -174,6 +181,13 @@ const VnScript = {
           },
         ],
       },
+      section_project: [
+        {
+          title: 'Dự án phần mềm định giá SBA',
+          description: 'Hệ thống định giá bất động sản, dự án đầu tư, doanh nghiệp, tài sản hữu hình, tài sản vô hình,... của SBA.',
+          image: '/images/project/sba.png'
+        },
+      ],
     },
     solution_online_education: {
       section_information: {
@@ -197,6 +211,13 @@ const VnScript = {
           },
         ],
       },
+      section_project: [
+        {
+          title: 'Dự án trung tâm Luna English',
+          description: 'Ứng dụng học Tiếng Anh của trung tâm Luna English.',
+          image: '/images/project/luna.png'
+        },
+      ],
     },
     solution_application_entertainment: {
       section_information: {
@@ -220,6 +241,23 @@ const VnScript = {
           },
         ],
       },
+      section_project: [
+        {
+          title: 'Dự án website tin tức thể thao The cup',
+          description: 'The cup là website cung cấp các tin tức thể thao.',
+          image: '/images/project/thecup.png'
+        },
+        {
+          title: 'Dự án audio book Happy station',
+          description: 'Ứng dụng sách nói độc quyền thuộc tủ sách Happy Live, ngoài ra còn có khóa học cùng nhiều podcast giá trị.',
+          image: '/images/project/happy_station.png'
+        },
+        {
+          title: 'Dự án hệ thống xếp hạng golf VJGR',
+          description: 'Hệ thống quản lý và xếp hạng golf cho các vận động viên thanh thiếu niên Việt Nam (Vietnam Junior Golf Ranking).',
+          image: '/images/project/vjgr.png'
+        },
+      ],
     },
     contact: {
       section_banner: {

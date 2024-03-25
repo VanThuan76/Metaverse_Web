@@ -6,6 +6,8 @@ import dynamic from 'next/dynamic';
 import LayoutWebsite from '@/src/shared/layout/LayoutWebsite';
 import Banner from '@/src/shared/components/common/website/banner';
 import FormConnect from '@/src/shared/components/common/website/FormConnect';
+import InfoSolution from '@/src/shared/components/common/website/pages/solution/InfoSolution';
+import ProjectSuccess from '@/src/shared/components/common/website/pages/solution/ProjectSuccess';
 
 const ScrollRevealWrapper = dynamic(() => import('@/src/shared/components/custom/ScrollRevealWrapper'), {
   ssr: false,
@@ -45,10 +47,22 @@ function SolutionDetail() {
         <Banner
           data={{
             title: trans.common.business.solution,
-            description: trans.page[pageSlug].section_information.description,
+            description: trans.common.business[convertSlug],
             image: `/images/banner/${convertSlugMap[convertSlug]}.png`,
           }}
           textBtn={trans.common.find_more}
+          styleList="solution"
+        />
+      </ScrollRevealWrapper>
+      <ScrollRevealWrapper title='DETAIL'>
+        <InfoSolution
+          description={trans.page[pageSlug].section_information.description}
+          child_section={trans.page[pageSlug].section_information.child_section}
+        />
+      </ScrollRevealWrapper>
+      <ScrollRevealWrapper title='PROJECT'>
+        <ProjectSuccess
+          section_project={trans.page[pageSlug].section_project}
         />
       </ScrollRevealWrapper>
       <ScrollRevealWrapper title='FORM_CONNECT'>

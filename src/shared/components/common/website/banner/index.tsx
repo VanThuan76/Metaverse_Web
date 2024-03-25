@@ -21,9 +21,10 @@ export interface PropsBanner {
   data: { title: string; description: string; image: string };
   textBtn: string;
   handleClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  styleList?: 'solution' | 'default';
 }
 const Banner = (props: PropsBanner) => {
-  const { data, textBtn, handleClick } = props;
+  const { data, textBtn, handleClick, styleList = 'default' } = props;
   return (
     <div className='relative flex min-h-[700px] w-full items-center justify-between'>
       <div
@@ -32,7 +33,9 @@ const Banner = (props: PropsBanner) => {
         <AnimatePresence mode='wait'>
           <TextLogo title={data.title} className='!text-4xl md:!text-5xl lg:!text-7xl' />
         </AnimatePresence>
-        <motion.div className='mt-2 text-2xl font-semibold leading-10 md:mt-3 md:text-3xl md:leading-[50px] lg:mt-5 lg:text-5xl lg:leading-[60px]'>
+        <motion.div
+          className={`mt-2 text-2xl font-semibold leading-10 md:mt-3 md:text-3xl md:leading-[50px] lg:mt-5 lg:text-5xl lg:leading-[60px] ${styleList === 'solution' && 'uppercase leading-7'}`}
+        >
           {data.description}
         </motion.div>
         <ButtonMotion text={textBtn} isMount={textBtn !== undefined} onClick={handleClick} />
@@ -42,7 +45,7 @@ const Banner = (props: PropsBanner) => {
           src={data.image as string}
           width={1980}
           height={700}
-          layer={false}
+          layer={styleList === 'default' ? false : true}
           alt={data.title}
           className='object-cover'
         />

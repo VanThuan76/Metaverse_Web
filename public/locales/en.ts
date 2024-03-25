@@ -151,6 +151,13 @@ const EnglishScript = {
           },
         ],
       },
+      section_project: [
+        {
+          title: 'Enterprise Management Project - Sen Bách Diệp',
+          description: 'Management system for the operations of the Sen Bách Diệp Spa chain.',
+          image: '/images/project/sbd.png',
+        },
+      ],
     },
     solution_asset_valuation: {
       section_information: {
@@ -173,6 +180,14 @@ const EnglishScript = {
           },
         ],
       },
+      section_project: [
+        {
+          title: 'SBA Valuation Software Project',
+          description:
+            'Real estate valuation system for investment projects, enterprises, tangible assets, intangible assets, etc., by SBA.',
+          image: '/images/project/sba.png',
+        },
+      ],
     },
     solution_online_education: {
       section_information: {
@@ -195,6 +210,13 @@ const EnglishScript = {
           },
         ],
       },
+      section_project: [
+        {
+          title: 'Luna English Center Project',
+          description: 'English learning application of Luna English Center.',
+          image: '/images/project/luna.png',
+        },
+      ],
     },
     solution_application_entertainment: {
       section_information: {
@@ -217,6 +239,24 @@ const EnglishScript = {
           },
         ],
       },
+      section_project: [
+        {
+          title: 'The Cup Sports News Website Project',
+          description: 'The Cup is a website providing sports news.',
+          image: '/images/project/thecup.png',
+        },
+        {
+          title: 'Happy Station Audio Book Project',
+          description:
+            'Exclusive audiobook application from Happy Live library, along with valuable courses and podcasts.',
+          image: '/images/project/happy_station.png',
+        },
+        {
+          title: 'VJGR Golf Ranking System Project',
+          description: 'Management and ranking system for junior golfers in Vietnam (Vietnam Junior Golf Ranking).',
+          image: '/images/project/vjgr.png',
+        },
+      ],
     },
     contact: {
       section_banner: {
