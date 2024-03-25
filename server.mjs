@@ -20,8 +20,8 @@ app.prepare().then(() => {
 
   // Read the SSL certificate and key files
   const httpsOptions = {
-    key: fs.readFileSync('/etc/letsencrypt/live/senbachdiep.com/privkey.pem'),
-    cert: fs.readFileSync('/etc/letsencrypt/live/senbachdiep.com/fullchain.pem'),
+    key: fs.readFileSync('/etc/letsencrypt/live/metaverse-solution.vn/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/metaverse-solution.vn/fullchain.pem'),
   };
 
   https

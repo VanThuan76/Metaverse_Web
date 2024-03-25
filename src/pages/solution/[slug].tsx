@@ -47,11 +47,12 @@ function SolutionDetail() {
         <Banner
           data={{
             title: trans.common.business.solution,
+            // @ts-ignore
             description: trans.common.business[convertSlug],
             image: `/images/banner/${convertSlugMap[convertSlug]}.png`,
           }}
           textBtn={trans.common.find_more}
-          styleList="solution"
+          styleList='solution'
         />
       </ScrollRevealWrapper>
       <ScrollRevealWrapper title='DETAIL'>
@@ -61,9 +62,7 @@ function SolutionDetail() {
         />
       </ScrollRevealWrapper>
       <ScrollRevealWrapper title='PROJECT'>
-        <ProjectSuccess
-          section_project={trans.page[pageSlug].section_project}
-        />
+        <ProjectSuccess section_project={trans.page[pageSlug].section_project} />
       </ScrollRevealWrapper>
       <ScrollRevealWrapper title='FORM_CONNECT'>
         <FormConnect />

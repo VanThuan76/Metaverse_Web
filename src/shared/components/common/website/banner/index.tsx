@@ -34,7 +34,9 @@ const Banner = (props: PropsBanner) => {
           <TextLogo title={data.title} className='!text-4xl md:!text-5xl lg:!text-7xl' />
         </AnimatePresence>
         <motion.div
-          className={`mt-2 text-2xl font-semibold leading-10 md:mt-3 md:text-3xl md:leading-[50px] lg:mt-5 lg:text-5xl lg:leading-[60px] ${styleList === 'solution' && 'uppercase leading-7'}`}
+          className={`mt-2 text-2xl font-semibold leading-10 md:mt-3 md:text-3xl md:leading-[50px] lg:mt-5 lg:text-5xl lg:leading-[60px] ${
+            styleList === 'solution' && 'uppercase leading-7'
+          }`}
         >
           {data.description}
         </motion.div>

@@ -13,13 +13,13 @@ interface Props {
 const InfoSolution = (props: Props) => {
   const { trans } = useTrans();
   return (
-    <div className='grid grid-cols-1 items-start justify-start lg:grid-cols-2 gap-4 md:gap-8'>
+    <div className='grid grid-cols-1 items-start justify-start gap-4 md:gap-8 lg:grid-cols-2'>
       <TitleSection
         title={trans.common.business.why_choose_us}
         description={props.description}
         className='!items-start !justify-start'
       />
-      <div className='flex flex-col justify-start items-start gap-2'>
+      <div className='flex flex-col items-start justify-start gap-2'>
         {props.child_section.map((item, idx) => (
           <div key={idx} className='flex flex-col gap-3'>
             <h2 className='text-lg md:text-xl lg:text-3xl'>{item.title}</h2>
