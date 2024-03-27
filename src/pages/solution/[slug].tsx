@@ -35,9 +35,9 @@ function SolutionDetail() {
   return (
     <React.Fragment>
       <Head>
-        <title>{trans.common.business.title}</title>
-        <meta name='description' content={trans.common.business.title} />
-        <meta name='keywords' content={trans.common.business.title} />
+        <title>{trans.common.business.solution}</title>
+        <meta name='description' content={trans.page[pageSlug].section_information.description} />
+        <meta name='keywords' content={trans.page[pageSlug].section_information.description} />
         <meta property='og:type' content='website' />
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
         <link rel='icon' href='/logo.svg' />

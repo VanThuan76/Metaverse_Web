@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const { i18n } = require('./next-i18next.config');
 
+const hostnames = ['sba.net.vn', 'theme.hstatic.net'];
+
 const nextConfig = {
   distDir: 'build',
   i18n,
@@ -8,8 +10,12 @@ const nextConfig = {
   typescript: {
     tsconfigPath: './tsconfig.json',
   },
-  image: {
-    domains: ['sba.net.vn', 'theme.hstatic.net'],
+  images: {
+    formats: ['image/avif', 'image/webp'],
+    remotePatterns: hostnames.map(hostname => ({
+      protocol: 'https',
+      hostname,
+    })),
   },
   webpack: config => {
     if (!config.experiments) {

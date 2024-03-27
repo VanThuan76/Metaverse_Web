@@ -310,5 +310,10 @@ const VnScript = {
     connect_success: 'Kết nối thành công',
     description_success: 'Bạn đã kết nối với Metaverse thành công. Chúng tôi sẽ liên hệ với bạn sớm nhất.',
   },
+  notFound: {
+    title: 'Trang này không tồn tại',
+    description: 'Trang bạn đang tìm dường như đã bị di chuyển, bị xóa hoặc không tồn tại.',
+    hint: 'Trở về trang chủ',
+  },
 };
 export default VnScript;

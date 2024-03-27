@@ -1,43 +1,22 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect } from 'react';
+import useTrans from '@/src/shared/hooks/useTrans';
 
 const Img404 = '/404.png';
 
 export default function Page404() {
-  useEffect(() => {
-    const ScrollReview = import('scrollreveal').then(module => {
-      const sr = module.default({
-        distance: '60px',
-        duration: 2800,
-        reset: false,
-      });
-      sr.reveal(`.animate_top`, {
-        origin: 'top',
-        interval: 100,
-      });
-      sr.reveal(`.animate_left`, {
-        origin: 'left',
-        interval: 100,
-      });
-      sr.reveal(`.animate_right`, {
-        origin: 'right',
-        interval: 100,
-      });
-    });
-  }, []);
-
+  const { trans } = useTrans();
   return (
     <section className='lg:pt-50 xl:pt-55 pb-25 lg:pb-32.5 xl:pb-37.5 overflow-hidden pt-48'>
       <div className='animate_top mx-auto max-w-[518px] text-center'>
         <Image src={Img404} alt='404' className='mb-7.5 mx-auto' width={396} height={156} />
 
-        <h2 className='mb-5 text-2xl font-semibold text-black dark:text-white md:text-4xl'>This Page Does Not Exist</h2>
-        <p className='mb-7.5'>The page you were looking for appears to have been moved, deleted or does not exist.</p>
+        <h2 className='mb-5 text-2xl font-semibold text-black dark:text-white md:text-4xl'>{trans.notFound.title}</h2>
+        <p className='mb-7.5'>{trans.notFound.description}</p>
 
         <button className=' dark:bg-btndark hover:bg-blackho mt-4 rounded-full bg-black px-6 py-3 font-medium text-white duration-300 ease-in-out'>
           <Link href={'/'} className='inline-flex items-center gap-2.5'>
-            Return to Home
+            {trans.notFound.hint}
             <svg
               className='fill-white'
               width='14'

@@ -306,6 +306,11 @@ const EnglishScript = {
     connect_success: 'Successful connection',
     description_success: 'You have successfully connected to the Metaverse. We will contact you as soon as possible.',
   },
+  notFound: {
+    title: 'This Page Does Not Exist',
+    description: 'The page you were looking for appears to have been moved, deleted or does not exist.',
+    hint: 'Return to Home',
+  },
 };
 
 export default EnglishScript;

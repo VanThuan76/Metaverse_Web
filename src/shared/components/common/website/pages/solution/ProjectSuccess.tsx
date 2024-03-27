@@ -12,7 +12,7 @@ interface Props {
 const ProjectSuccess = (props: Props) => {
   const { trans } = useTrans();
   return (
-    <div className='flex w-full flex-col items-center justify-center px-6'>
+    <div className='flex w-full flex-col items-center justify-center p-4 md:px-28 lg:px-36'>
       <TitleSection title={trans.common.business.success_project} description={trans.common.business.typical_project} />
       <div className='flex w-full flex-col items-center justify-center gap-4 md:gap-8 lg:gap-16'>
         {props.section_project.map((item, idx) => (

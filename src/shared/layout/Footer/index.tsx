@@ -9,7 +9,7 @@ const FooterLayoutWebsite = () => {
   const router = useRouter();
   return (
     <section className='w-full bg-[var(--primary-color)] font-thin text-white'>
-      <div className='container-layer flex-col-between-center gap-10 p-5 py-4 md:px-10 md:py-6 lg:py-12'>
+      <div className='flex-col-between-center gap-10 p-4 md:px-28 md:py-6 lg:px-36 lg:py-12'>
         <div className='mb-4 grid w-full grid-cols-1 items-start justify-start lg:grid-cols-5'>
           <div className='col-span-1 md:col-span-2'>
             <TextLogo onClick={() => router.push('/')} className='!text-lg md:!text-2xl lg:!text-4xl' />

@@ -48,7 +48,7 @@ function Solution() {
   return (
     <React.Fragment>
       <Head>
-        <title>{trans.common.business.title}</title>
+        <title>{trans.common.business.solution}</title>
         <meta name='description' content={trans.common.business.title} />
         <meta name='keywords' content={trans.common.business.title} />
         <meta property='og:type' content='website' />
@@ -93,9 +93,9 @@ function Solution() {
             {idx % 2 !== 0 && (
               <div className='hidden items-center justify-center p-5 lg:flex lg:p-10'>
                 <PreImage
-                  className='object-cover'
-                  height={500}
+                  className='object-contain'
                   width={500}
+                  height={500}
                   src={item.image}
                   alt={item.title}
                 ></PreImage>
@@ -126,7 +126,13 @@ function Solution() {
             </div>
             {idx % 2 === 0 && (
               <div className='hidden place-content-end p-5 lg:grid lg:p-10'>
-                <PreImage className='object-cover' height={500} src={item.image} alt={item.title}></PreImage>
+                <PreImage
+                  className='object-contain'
+                  width={500}
+                  height={500}
+                  src={item.image}
+                  alt={item.title}
+                ></PreImage>
               </div>
             )}
           </div>

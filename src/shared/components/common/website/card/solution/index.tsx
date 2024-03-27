@@ -21,6 +21,7 @@ const SolutionCard = (data: Props) => {
       }`}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
+      onClick={() => setIsHovered(true)}
       transition={{
         duration: 0.3,
         ease: 'easeInOut',
