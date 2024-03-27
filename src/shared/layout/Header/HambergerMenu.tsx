@@ -1,12 +1,13 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import { Menu } from 'lucide-react';
-import { Sheet, SheetContent, SheetTrigger } from '@/src/shared/components/ui/sheet';
+import { motion } from 'framer-motion';
+import { Sheet, SheetClose, SheetContent, SheetTrigger } from '@/src/shared/components/ui/sheet';
 import { menuWebsitePath } from '@/src/shared/constants/menu';
 import TextLogo from '@/src/shared/components/common/website/TextLogo';
 import SwitchLanguageMode from '@/src/shared/components/custom/SwitchLanguageMode';
 import useTrans from '@/src/shared/hooks/useTrans';
-import ListMenu from './ListMenu';
+import DropdownMenuCustomize from '@/src/shared/components/custom/DropdownMenu';
 
 const HambergerMenu = () => {
   const { trans } = useTrans();
@@ -25,7 +26,31 @@ const HambergerMenu = () => {
               <SwitchLanguageMode className='flex w-full items-end justify-end pr-5 md:hidden md:pr-0' />
             </div>
             <div className='flex-col-start mt-5 h-full w-full gap-4'>
-              <ListMenu menuPath={menuWebsitePath} className='!-left-3 !bottom-0 !h-[25px] !w-[2px]' />
+              {menuWebsitePath.map((item, idx) => {
+                const key = item.path as keyof typeof trans.common.business;
+                const value = trans.common.business[key];
+                return (
+                  <SheetClose key={idx}>
+                    {item.children ? (
+                      <DropdownMenuCustomize title={value} menuItem={item.children} />
+                    ) : (
+                      <div onClick={() => router.push(`/${item.path}`)}>
+                        <div className='relative w-full'>
+                          <div className='flex-row-between-center w-full gap-2'>
+                            <p>{value}</p>
+                          </div>
+                          {router.asPath.split('/')[1] === item.path ? (
+                            <motion.div
+                              className={`absolute -left-3 bottom-0 right-0 z-0 h-[25px] w-[2px] rounded-[8px] bg-white`}
+                              layoutId='underline'
+                            />
+                          ) : null}
+                        </div>
+                      </div>
+                    )}
+                  </SheetClose>
+                );
+              })}
             </div>
           </div>
         </SheetContent>

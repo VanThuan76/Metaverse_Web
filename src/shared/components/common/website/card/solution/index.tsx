@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import router from 'next/router';
-import IconArrowRight from '@/src/shared/components/icons/IconArrowRight';
+import useBreakpoint from 'use-breakpoint';
 import useTrans from '@/src/shared/hooks/useTrans';
-import ButtonMotion from '../../ButtonMotion';
+import ButtonMotion from '@/src/shared/components/common/website/ButtonMotion';
+import { breakpoints } from '@/src/config/core';
 
 interface Props {
   title: string;
@@ -14,6 +15,7 @@ interface Props {
 const SolutionCard = (data: Props) => {
   const { trans } = useTrans();
   const [isHovered, setIsHovered] = useState(false);
+  const { breakpoint } = useBreakpoint(breakpoints);
   return (
     <motion.div
       className={`flex border-collapse cursor-pointer flex-col items-center justify-center overflow-hidden rounded-xl border border-[#555] p-2 md:p-3 lg:p-5 ${
@@ -38,7 +40,7 @@ const SolutionCard = (data: Props) => {
         </div>
         <ButtonMotion
           text={trans.common.find_more}
-          isMount={isHovered}
+          isMount={breakpoint === 'sm' ? true : isHovered}
           onClick={() => router.push(`solution/${data.link}`)}
         />
       </div>
