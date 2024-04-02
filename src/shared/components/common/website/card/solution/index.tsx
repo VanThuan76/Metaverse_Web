@@ -40,7 +40,7 @@ const SolutionCard = (data: Props) => {
         </div>
         <ButtonMotion
           text={trans.common.find_more}
-          isMount={breakpoint === 'sm' ? true : isHovered}
+          isMount={breakpoint !== 'sm' && breakpoint !== 'lg' && breakpoint !== 'md' ? true : isHovered}
           onClick={() => router.push(`solution/${data.link}`)}
         />
       </div>

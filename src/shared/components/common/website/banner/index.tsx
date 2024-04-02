@@ -19,9 +19,9 @@ export const wordAnimation = {
 };
 export interface PropsBanner {
   data: { title: string; description: string; image: string };
-  textBtn: string;
+  textBtn?: string;
   handleClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-  styleList?: 'solution' | 'default';
+  styleList?: 'solution' | 'news' | 'default';
 }
 const Banner = (props: PropsBanner) => {
   const { data, textBtn, handleClick, styleList = 'default' } = props;
@@ -31,7 +31,13 @@ const Banner = (props: PropsBanner) => {
         className={`mx-auto flex h-full w-full flex-col items-start justify-start gap-5 p-4 tracking-wide text-white md:px-28 lg:px-36`}
       >
         <AnimatePresence mode='wait'>
-          <TextLogo title={data.title} className='!text-4xl md:!text-5xl lg:!text-7xl' />
+          <TextLogo
+            title={data.title}
+            className={`!text-4xl md:!text-5xl lg:!text-7xl ${
+              styleList === 'news' && 'w-full !text-2xl md:w-[80%] md:!text-3xl lg:!text-5xl'
+            }`}
+            style={styleList === 'news' ? { lineHeight: '200%' } : {}}
+          />
         </AnimatePresence>
         <motion.div
           className={`mt-2 text-2xl font-semibold leading-10 md:mt-3 md:text-3xl md:leading-[50px] lg:mt-5 lg:text-5xl lg:leading-[60px] ${
@@ -40,7 +46,7 @@ const Banner = (props: PropsBanner) => {
         >
           {data.description}
         </motion.div>
-        <ButtonMotion text={textBtn} isMount={textBtn !== undefined} onClick={handleClick} />
+        {textBtn && <ButtonMotion text={textBtn} isMount={textBtn !== undefined} onClick={handleClick} />}
       </div>
       <div className='absolute left-0 top-0 -z-10 h-full w-full'>
         <PreImage
