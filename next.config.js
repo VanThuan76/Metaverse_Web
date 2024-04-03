@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const { i18n } = require('./next-i18next.config');
 
-const hostnames = ['sba.net.vn', 'theme.hstatic.net'];
+const hostnames = ['sba.net.vn', 'theme.hstatic.net', 'cdn.sanity.io'];
 
 const nextConfig = {
   distDir: 'build',

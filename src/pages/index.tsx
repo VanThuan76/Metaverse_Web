@@ -6,13 +6,13 @@ import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
+import { iconSolutionChildSection, logoPartner } from '@/src/shared/constants/business';
+import { PreImage } from '@/src/shared/components/custom/PreImage';
+import { Carousel, CarouselContent, CarouselItem } from '@/src/shared/components/ui/carousel';
 import LayoutWebsite from '@/src/shared/layout/LayoutWebsite';
 import Banner from '@/src/shared/components/common/website/banner';
 import TitleSection from '@/src/shared/components/common/website/TitleSection';
 import SolutionCard from '@/src/shared/components/common/website/card/solution';
-import { iconSolutionChildSection, logoPartner } from '@/src/shared/constants/business';
-import { PreImage } from '@/src/shared/components/custom/PreImage';
-import { Carousel, CarouselContent, CarouselItem } from '@/src/shared/components/ui/carousel';
 import IconNext from '@/src/shared/components/icons/business/IconNext';
 import IconQuote from '@/src/shared/components/icons/business/IconQuote';
 import convertStringWithSpace from '@/src/shared/utils/functions/convertString';
