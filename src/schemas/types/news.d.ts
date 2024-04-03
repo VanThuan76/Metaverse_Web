@@ -1,9 +1,12 @@
 export interface INews {
+  category: { name: string; ref: string };
   slug: string;
   title_image: Titleimage;
   content: Content[];
   title: string;
   description: string;
+  created_at: string;
+  updated_at: string;
 }
 
 interface Content {

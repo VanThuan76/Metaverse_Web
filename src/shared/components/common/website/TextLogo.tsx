@@ -19,7 +19,6 @@ interface Props {
 }
 const TextLogo = (props: Props) => {
   const { trans } = useTrans();
-  console.log(props.style);
   return (
     <motion.span
       variants={staggerChildren}

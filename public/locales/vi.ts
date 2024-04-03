@@ -10,6 +10,8 @@ const VnScript = {
       application_entertainment: 'Ứng dụng trong giải trí',
       about_us: 'Về chúng tôi',
       news: 'Tin tức',
+      category: 'Thể loại',
+      titleLastNews: 'Bài viết mới',
       recruitment: 'Tuyển dụng',
       contact: 'Liên hệ',
       contact_info: 'Thông tin liên hệ',
@@ -309,6 +311,14 @@ const VnScript = {
     hint: 'Nếu bạn quan tâm điều khác, vui lòng cho chúng tôi biết.',
     connect_success: 'Kết nối thành công',
     description_success: 'Bạn đã kết nối với Metaverse thành công. Chúng tôi sẽ liên hệ với bạn sớm nhất.',
+  },
+  table: {
+    rows_per_page: 'Dữ liệu mỗi trang',
+    page: 'Trang',
+    next: 'Tiếp',
+    previous: 'Trước',
+    first: 'Đầu tiên',
+    last: 'Cuối cùng',
   },
   notFound: {
     title: 'Trang này không tồn tại',

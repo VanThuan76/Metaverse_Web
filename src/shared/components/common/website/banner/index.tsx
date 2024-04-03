@@ -27,27 +27,29 @@ const Banner = (props: PropsBanner) => {
   const { data, textBtn, handleClick, styleList = 'default' } = props;
   return (
     <div className='relative flex min-h-[700px] w-full items-center justify-between'>
-      <div
-        className={`mx-auto flex h-full w-full flex-col items-start justify-start gap-5 p-4 tracking-wide text-white md:px-28 lg:px-36`}
-      >
-        <AnimatePresence mode='wait'>
-          <TextLogo
-            title={data.title}
-            className={`!text-4xl md:!text-5xl lg:!text-7xl ${
-              styleList === 'news' && 'w-full !text-2xl md:w-[80%] md:!text-3xl lg:!text-5xl'
-            }`}
-            style={styleList === 'news' ? { lineHeight: '200%' } : {}}
-          />
-        </AnimatePresence>
-        <motion.div
-          className={`mt-2 text-2xl font-semibold leading-10 md:mt-3 md:text-3xl md:leading-[50px] lg:mt-5 lg:text-5xl lg:leading-[60px] ${
-            styleList === 'solution' && 'uppercase leading-7'
-          }`}
+      {styleList !== 'news' ? (
+        <div
+          className={`mx-auto flex h-full w-full flex-col items-start justify-start gap-5 p-4 tracking-wide text-white md:px-28 lg:px-36`}
         >
-          {data.description}
-        </motion.div>
-        {textBtn && <ButtonMotion text={textBtn} isMount={textBtn !== undefined} onClick={handleClick} />}
-      </div>
+          <AnimatePresence mode='wait'>
+            <TextLogo title={data.title} className={`!text-4xl md:!text-5xl lg:!text-7xl`} />
+          </AnimatePresence>
+          <motion.div
+            className={`mt-2 text-2xl font-semibold leading-10 md:mt-3 md:text-3xl md:leading-[50px] lg:mt-5 lg:text-5xl lg:leading-[60px] ${
+              styleList === 'solution' && 'uppercase leading-7'
+            }`}
+          >
+            {data.description}
+          </motion.div>
+          {textBtn && <ButtonMotion text={textBtn} isMount={textBtn !== undefined} onClick={handleClick} />}
+        </div>
+      ) : (
+        <div className='mx-auto h-full w-full pl-4 text-white md:pl-8'>
+          <h1 className='text-4xl font-bold md:text-5xl lg:text-7xl' style={{ lineHeight: '150%' }}>
+            {data.title}
+          </h1>
+        </div>
+      )}
       <div className='absolute left-0 top-0 -z-10 h-full w-full'>
         <PreImage
           src={data.image as string}

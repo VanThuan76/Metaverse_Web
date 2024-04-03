@@ -27,7 +27,7 @@ export function PreImage({ src, layer, ...rest }: Props) {
         {layer && (
           <div
             style={rest.style}
-            className={`${rest.className} ${backgroundLayer} absolute left-0 top-0 h-full w-full opacity-20 blur-lg`}
+            className={`${rest.className} ${backgroundLayer} absolute left-0 top-0 h-full w-full opacity-50 blur-lg`}
           ></div>
         )}
         {!imageLoaded && (

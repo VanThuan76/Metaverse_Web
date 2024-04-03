@@ -1,13 +1,19 @@
 import { client } from '@/src/shared/lib/sanity';
 
-export async function getListNews() {
-  const query = `*[_type == 'news'] | order(_createdAt desc) {
-        title,
-        description,
-        "slug": slug.current,
-        title_image,
-        content
-      }`;
+export async function getListNews(queryParams?: string) {
+  const query = `*[_type == 'news'${queryParams ? ` && ${queryParams}` : ''}] | order(_createdAt desc) {
+    "category": {
+      "name": category->{name}.name,
+      "ref": category._ref
+    },
+    title,
+    description,
+    "slug": slug.current,
+    title_image,
+    content,
+    "created_at": _createdAt,
+    "updated_at": _updatedAt,
+  }`;
   const data = await client.fetch(query);
   return data;
 }

@@ -1,8 +1,14 @@
 export default {
   name: 'news',
   type: 'document',
-  title: 'News',
+  title: 'Tin tức',
   fields: [
+    {
+      name: 'category',
+      type: 'reference',
+      title: 'Danh mục',
+      to: [{type: 'category'}],
+    },
     {
       name: 'title',
       type: 'string',
@@ -33,6 +39,23 @@ export default {
       of: [
         {
           type: 'block',
+        },
+        {
+          name: 'video',
+          type: 'object',
+          title: 'Video',
+          fields: [
+            {
+              name: 'url',
+              type: 'url',
+              title: 'Video URL',
+            },
+            {
+              name: 'caption',
+              type: 'string',
+              title: 'Caption',
+            },
+          ],
         },
         {
           type: 'image',

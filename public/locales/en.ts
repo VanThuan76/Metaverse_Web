@@ -10,6 +10,8 @@ const EnglishScript = {
       application_entertainment: 'Entertainment Applications',
       about_us: 'About Us',
       news: 'News',
+      category: 'Category',
+      titleLastNews: 'New Posts',
       recruitment: 'Recruitment',
       contact: 'Contact',
       contact_info: 'Contact Info',
@@ -305,6 +307,14 @@ const EnglishScript = {
     hint: 'If you are interested in something else, please let us know.',
     connect_success: 'Successful connection',
     description_success: 'You have successfully connected to the Metaverse. We will contact you as soon as possible.',
+  },
+  table: {
+    rows_per_page: 'Rows per page',
+    page: 'Page',
+    next: 'Next',
+    previous: 'Previous',
+    first: 'First',
+    last: 'Last',
   },
   notFound: {
     title: 'This Page Does Not Exist',

@@ -3,6 +3,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '.
 import { Button } from './button';
 import { ChevronLeftIcon, ChevronRightIcon, ChevronsLeftIcon, ChevronsRightIcon } from 'lucide-react';
 import { Input } from './input';
+import useTrans from '../../hooks/useTrans';
 
 type Props = {
   pageSize: number;
@@ -12,11 +13,12 @@ type Props = {
 };
 
 export default function Pagination({ pageSize, totalPage, onChangeFunc, currentPage }: Props) {
+  const { trans } = useTrans();
   return (
     <div className=' ml-auto flex items-center justify-between px-2'>
       <div className='flex items-center space-x-6 lg:space-x-8'>
         <div className='flex items-center space-x-2'>
-          <p className='text-sm font-medium'>Rows per page</p>
+          <p className='text-sm font-medium'>{trans.table.rows_per_page}</p>
           <Select
             value={`${pageSize}`}
             onValueChange={value => {
@@ -38,15 +40,15 @@ export default function Pagination({ pageSize, totalPage, onChangeFunc, currentP
           </Select>
         </div>
         <div className='flex  items-center justify-center gap-1 text-sm font-medium'>
-          <span>Page</span>{' '}
+          <span>{trans.table.page}</span>{' '}
           <Input
             className='w-[50px]'
             defaultValue={currentPage}
             onChange={e => onChangeFunc(parseInt(e.target.value), pageSize)}
             max={totalPage}
             min={1}
-          />{' '}
-          <span>of {totalPage}</span>
+            disabled={true}
+          />
         </div>
         <div className='flex items-center space-x-2'>
           <Button
@@ -59,7 +61,7 @@ export default function Pagination({ pageSize, totalPage, onChangeFunc, currentP
             }}
             disabled={currentPage === 1}
           >
-            <span className='sr-only'>Go to first page</span>
+            <span className='sr-only'>{trans.table.first}</span>
             <ChevronsLeftIcon className='h-4 w-4' />
           </Button>
           <Button
@@ -72,7 +74,7 @@ export default function Pagination({ pageSize, totalPage, onChangeFunc, currentP
             }}
             disabled={currentPage === 1}
           >
-            <span className='sr-only'>Go to previous page</span>
+            <span className='sr-only'>{trans.table.previous}</span>
             <ChevronLeftIcon className='h-4 w-4' />
           </Button>
           <Button
@@ -85,7 +87,7 @@ export default function Pagination({ pageSize, totalPage, onChangeFunc, currentP
             }}
             disabled={currentPage === totalPage}
           >
-            <span className='sr-only'>Go to next page</span>
+            <span className='sr-only'>{trans.table.next}</span>
             <ChevronRightIcon className='h-4 w-4' />
           </Button>
           <Button
@@ -98,7 +100,7 @@ export default function Pagination({ pageSize, totalPage, onChangeFunc, currentP
             }}
             disabled={currentPage === totalPage}
           >
-            <span className='sr-only'>Go to last page</span>
+            <span className='sr-only'>{trans.table.last}</span>
             <ChevronsRightIcon className='h-4 w-4' />
           </Button>
         </div>
