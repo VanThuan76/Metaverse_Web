@@ -24,6 +24,17 @@ const nextConfig = {
     config.experiments.topLevelAwait = true;
     return config;
   },
+  // #DOCKER
+  onDemandEntries: {
+    websocketPort: 3000,
+  },
+  webpackDevMiddleware: config => {
+    config.watchOptions = {
+      poll: 1000,
+      aggregateTimeout: 300,
+    };
+    return config;
+  },
 };
 
 module.exports = nextConfig;
