@@ -10,6 +10,9 @@ COPY package*.json ./
 # Cài đặt các dependencies của ứng dụng
 RUN npm install --legacy-peer-deps
 
+# Cài đặt @sanity/cli toàn cầu
+RUN npm install -g @sanity/cli
+
 # Copy tất cả các file trong thư mục gốc vào thư mục làm việc
 COPY . .
 
