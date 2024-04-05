@@ -10,14 +10,11 @@ COPY package*.json ./
 # Cài đặt các dependencies của ứng dụng
 RUN npm install --legacy-peer-deps
 
-# Cài đặt @sanity/cli toàn cầu
-RUN npm install -g @sanity/cli
-
 # Copy tất cả các file trong thư mục gốc vào thư mục làm việc
 COPY . .
 
 # Build ứng dụng Next.js
-RUN npm run build
+RUN npm run build:deploy
 
 # Expose cổng 3000 (hoặc cổng mà ứng dụng của bạn đang sử dụng)
 EXPOSE 3000

@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "npm run format && next build",
+    "build:deploy": "rm -rf sanity && npm run format && next build",
     "start": "next start",
     "deploy:local": "next build && pm2 startOrRestart ecosystem.config.js --env local",
     "deploy:dev": "next build && pm2 startOrRestart ecosystem.config.js --env dev",
