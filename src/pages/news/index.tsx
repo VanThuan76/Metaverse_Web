@@ -18,6 +18,7 @@ import { Badge } from '@/src/shared/components/ui/badge';
 import { getListCategory } from '@/src/schemas/server/sanity/category';
 import { ICategory } from '@/src/schemas/types/category';
 import Pagination from '@/src/shared/components/ui/pagination';
+import { LoadingSpinner } from '@/src/shared/components/icons/LoadingSpinner';
 
 const ScrollRevealWrapper = dynamic(() => import('@/src/shared/components/custom/ScrollRevealWrapper'), {
   ssr: false,
@@ -42,7 +43,6 @@ function News() {
   useEffect(() => {
     refetch();
   }, [query]);
-  if (isLoading) return <div>Loading...</div>;
   if (isError) return <Error500 />;
   return (
     <React.Fragment>
@@ -65,58 +65,62 @@ function News() {
           textBtn=''
         />
       </ScrollRevealWrapper>
-      <ScrollRevealWrapper title='NEWS'>
-        <div className='mb-5 flex w-full flex-wrap items-start justify-start gap-2'>
-          {trans.common.business.category}:
-          {category &&
-            category.map((item: ICategory, index: number) => {
-              return (
-                <Badge key={index} variant='default' className='cursor-pointer' onClick={() => handleQuery(item._id)}>
-                  #{item.name}
-                </Badge>
-              );
-            })}
-        </div>
-        <div className='mb-5 grid w-full grid-cols-1 items-start justify-start gap-8'>
-          {data &&
-            data.map((item: INews, index: number) => {
-              return (
-                <div
-                  key={index}
-                  className={`grid w-full cursor-pointer grid-cols-1 items-start justify-between gap-2 overflow-hidden rounded-lg md:grid-cols-2 md:gap-4 ${
-                    isHover === item && 'bg-slate-200'
-                  }`}
-                  onClick={() => router.push(`/news/${item.slug}`)}
-                  onMouseEnter={() => setIsHover(item)}
-                  onMouseLeave={() => setIsHover(undefined)}
-                >
-                  <PreImage
-                    src={urlFor(item.title_image).url()}
-                    height={300}
-                    width={800}
-                    layer={false}
-                    alt={item.title}
-                    className='h-full w-full rounded-lg object-cover object-center'
-                  />
-                  <div className='flex-col-start h-full w-full gap-2 px-3 md:px-5'>
-                    <h1 className='text-lg font-semibold md:text-2xl'>{item.title}</h1>
-                    <p className='mt-2 line-clamp-3 text-sm text-gray-600'>{item.description}</p>
-                    <div className='mt-5 flex items-start justify-start gap-3 self-end'>
-                      <div>
-                        <Badge variant='default'>#{item.category.name}</Badge>
-                      </div>
-                      <div className='flex items-center justify-center gap-1'>
-                        <IconTime className='text-base' />
-                        <p className='font-normal'>{convertStringDay(item.created_at)}</p>
+      {isLoading ? (
+        <LoadingSpinner className='h-[50px] w-[50px]' />
+      ) : (
+        <ScrollRevealWrapper title='NEWS'>
+          <div className='mb-5 flex w-full flex-wrap items-start justify-start gap-2'>
+            {trans.common.business.category}:
+            {category &&
+              category.map((item: ICategory, index: number) => {
+                return (
+                  <Badge key={index} variant='default' className='cursor-pointer' onClick={() => handleQuery(item._id)}>
+                    #{item.name}
+                  </Badge>
+                );
+              })}
+          </div>
+          <div className='mb-5 grid w-full grid-cols-1 items-start justify-start gap-8'>
+            {data &&
+              data.map((item: INews, index: number) => {
+                return (
+                  <div
+                    key={index}
+                    className={`grid w-full cursor-pointer grid-cols-1 items-start justify-between gap-2 overflow-hidden rounded-lg md:grid-cols-2 md:gap-4 ${
+                      isHover === item && 'bg-slate-200'
+                    }`}
+                    onClick={() => router.push(`/news/${item.slug}`)}
+                    onMouseEnter={() => setIsHover(item)}
+                    onMouseLeave={() => setIsHover(undefined)}
+                  >
+                    <PreImage
+                      src={urlFor(item.title_image).url()}
+                      height={300}
+                      width={800}
+                      layer={false}
+                      alt={item.title}
+                      className='h-full w-full rounded-lg object-cover object-center'
+                    />
+                    <div className='flex-col-start h-full w-full gap-2 px-3 md:px-5'>
+                      <h1 className='text-lg font-semibold md:text-2xl'>{item.title}</h1>
+                      <p className='mt-2 line-clamp-3 text-sm text-gray-600'>{item.description}</p>
+                      <div className='mt-5 flex items-start justify-start gap-3 self-end'>
+                        <div>
+                          <Badge variant='default'>#{item.category.name}</Badge>
+                        </div>
+                        <div className='flex items-center justify-center gap-1'>
+                          <IconTime className='text-base' />
+                          <p className='font-normal'>{convertStringDay(item.created_at)}</p>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
-        </div>
-        <Pagination pageSize={10} totalPage={1} currentPage={1} onChangeFunc={() => {}} />
-      </ScrollRevealWrapper>
+                );
+              })}
+          </div>
+          <Pagination pageSize={10} totalPage={1} currentPage={1} onChangeFunc={() => {}} />
+        </ScrollRevealWrapper>
+      )}
     </React.Fragment>
   );
 }

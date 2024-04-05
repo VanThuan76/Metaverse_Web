@@ -66,49 +66,51 @@ const NewsArticle = () => {
         />
       </ScrollRevealWrapper>
       <ScrollRevealWrapper title='ARTICLE'>
-        <div className='grid w-full grid-cols-1 items-start justify-start gap-8 lg:grid-cols-7'>
+        <div className='grid h-full w-full grid-cols-1 items-start justify-start gap-8 lg:grid-cols-7'>
           <div className='prose-md prose-blue md:prose-xl prose-a:text-primary prose-li:marker:text-primary md:col-span-4'>
             <PortableText value={data.content} components={myPortableTextComponents} />
           </div>
           <div className='flex min-h-[500px] w-full flex-col items-start justify-start gap-8 md:col-span-3'>
             <h1 className='text-base font-semibold md:text-xl'>{trans.common.business.titleLastNews}</h1>
-            <div className='grid w-full grid-cols-1 items-start justify-start gap-8'>
-              {latestNews.map((article: INews, idx: number) => {
-                return (
-                  <div
-                    key={idx}
-                    className={`grid max-h-[190px] w-full grid-cols-1 items-start justify-between gap-4 rounded-lg md:grid-cols-2 ${
-                      isHover === article && 'bg-slate-200'
-                    }`}
-                  >
-                    <PreImage
-                      src={urlFor(article.title_image).url()}
-                      height={190}
-                      width={currentBreakpoint === 'md' || currentBreakpoint === 'sm' ? 1980 : 400}
-                      layer={false}
-                      alt={article.title}
-                      className='max-h-[190px] w-full rounded-lg object-cover object-bottom'
-                    />
+            <div className='grid h-full w-full grid-cols-1 items-start justify-start gap-8'>
+              {latestNews
+                .filter((item: INews) => item.slug !== router.query.slug)
+                .map((article: INews, idx: number) => {
+                  return (
                     <div
-                      className='flex h-full w-full cursor-pointer flex-col items-start justify-start gap-2 py-5'
-                      onClick={() => router.push(`/news/${article.slug}`)}
-                      onMouseEnter={() => setIsHover(article)}
-                      onMouseLeave={() => setIsHover(undefined)}
+                      key={idx}
+                      className={`grid h-full w-full grid-cols-1 items-start justify-start gap-4 rounded-lg md:grid-cols-2 ${
+                        isHover === article && 'bg-slate-200'
+                      }`}
                     >
-                      <h1 className='text-base font-medium'>{article.title}</h1>
-                      <div className='mt-5 flex w-full flex-wrap items-start justify-start gap-3'>
-                        <div>
-                          <Badge variant='default'>#{article.category.name}</Badge>
-                        </div>
-                        <div className='flex items-center justify-center gap-1'>
-                          <IconTime className='text-xs' />
-                          <p className='text-xs font-normal'>{convertStringDay(article.created_at)}</p>
+                      <PreImage
+                        src={urlFor(article.title_image).url()}
+                        height={190}
+                        width={currentBreakpoint === 'md' || currentBreakpoint === 'sm' ? 1980 : 400}
+                        layer={false}
+                        alt={article.title}
+                        className='max-h-[190px] w-full rounded-lg object-cover object-bottom'
+                      />
+                      <div
+                        className='flex h-full w-full cursor-pointer flex-col items-start justify-start gap-2 pb-5'
+                        onClick={() => router.push(`/news/${article.slug}`)}
+                        onMouseEnter={() => setIsHover(article)}
+                        onMouseLeave={() => setIsHover(undefined)}
+                      >
+                        <h1 className='text-base font-medium'>{article.title}</h1>
+                        <div className='mt-5 flex w-full flex-wrap items-center justify-start gap-3'>
+                          <div>
+                            <Badge variant='default'>#{article.category.name}</Badge>
+                          </div>
+                          <div className='flex items-center justify-center gap-1'>
+                            <IconTime className='text-xs' />
+                            <p className='text-xs font-normal'>{convertStringDay(article.created_at)}</p>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
             </div>
           </div>
         </div>
