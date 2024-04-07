@@ -2,7 +2,7 @@ import useTrans from '@/src/shared/hooks/useTrans';
 import { motion } from 'framer-motion';
 import { Bungee } from 'next/font/google';
 import { CSSProperties } from 'react';
-const bungee = Bungee({ subsets: ['latin-ext'], display: 'swap', weight: ['400'] });
+const bungee = Bungee({ subsets: ['latin-ext'], display: 'swap', preload:false, weight: ['400'] });
 export const staggerChildren = {
   animate: {
     transition: {
