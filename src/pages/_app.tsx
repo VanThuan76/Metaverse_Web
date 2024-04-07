@@ -6,6 +6,7 @@ import '../styles/globals.css';
 import Head from 'next/head';
 import type { AppProps } from 'next/app';
 import React, { ReactElement } from 'react';
+import { Roboto } from 'next/font/google';
 import { NextPage } from 'next';
 import { Provider } from 'react-redux';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
@@ -14,10 +15,16 @@ import { Jelly } from '@uiball/loaders';
 import { store } from 'src/shared/stores';
 import { useAppSelector } from '@/src/shared/hooks/useRedux';
 import { Toaster } from '@/src/shared/components/ui/toaster';
-import { nextFont, queryClient } from '@/src/config/core';
+import { queryClient } from '@/src/config/core';
 import useRouterChange from '@/src/shared/utils/useRouterChange';
 import ProgressBarNext from '@/src/shared/components/custom/ProgressBarNext';
 import useTrans from '@/src/shared/hooks/useTrans';
+export const nextFont = Roboto({
+  subsets: ['vietnamese'],
+  display: 'swap',
+  weight: ['400', '500', '700', '300', '900'],
+  preload: false,
+});
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => React.ReactNode;
