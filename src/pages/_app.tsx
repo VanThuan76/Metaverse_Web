@@ -24,6 +24,7 @@ export const nextFont = Roboto({
   display: 'swap',
   weight: ['400', '500', '700', '300', '900'],
   preload: false,
+  adjustFontFallback: false
 });
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
