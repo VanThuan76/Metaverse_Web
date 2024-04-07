@@ -79,9 +79,12 @@ const NewsArticle = () => {
                   return (
                     <div
                       key={idx}
-                      className={`grid h-full w-full grid-cols-1 items-start justify-start gap-4 rounded-lg md:grid-cols-2 ${
+                      className={`grid h-full w-full cursor-pointer grid-cols-1 items-start justify-start gap-4 rounded-lg md:grid-cols-2 ${
                         isHover === article && 'bg-slate-200'
                       }`}
+                      onClick={() => router.push(`/news/${article.slug}`)}
+                      onMouseEnter={() => setIsHover(article)}
+                      onMouseLeave={() => setIsHover(undefined)}
                     >
                       <PreImage
                         src={urlFor(article.title_image).url()}
@@ -91,12 +94,7 @@ const NewsArticle = () => {
                         alt={article.title}
                         className='max-h-[190px] w-full rounded-lg object-cover object-bottom'
                       />
-                      <div
-                        className='flex h-full w-full cursor-pointer flex-col items-start justify-start gap-2 pb-5'
-                        onClick={() => router.push(`/news/${article.slug}`)}
-                        onMouseEnter={() => setIsHover(article)}
-                        onMouseLeave={() => setIsHover(undefined)}
-                      >
+                      <div className='flex h-full w-full flex-col items-start justify-start gap-2 pb-5'>
                         <h1 className='text-base font-medium'>{article.title}</h1>
                         <div className='mt-5 flex w-full flex-wrap items-center justify-start gap-3'>
                           <div>

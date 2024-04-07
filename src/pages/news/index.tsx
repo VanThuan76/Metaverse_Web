@@ -60,7 +60,7 @@ function News() {
           data={{
             title: trans.common.business.news,
             description: '',
-            image: '/images/banner/news_latest.jpg',
+            image: '/images/banner/news.png',
           }}
           textBtn=''
         />
